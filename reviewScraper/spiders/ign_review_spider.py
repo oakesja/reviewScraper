@@ -2,6 +2,7 @@ import scrapy
 
 from reviewScraper.items import IgnItem
 from reviewScraper.ign_xpaths import IgnXpaths
+from reviewScraper.itemLoaders.ignItemLoader import IgnItemLoader
 
 class IgnReviewSpider(scrapy.Spider):
     name = "ign"
@@ -9,17 +10,17 @@ class IgnReviewSpider(scrapy.Spider):
     start_urls = [
         "http://www.ign.com/games/fallout-new-vegas"
     ]
-    
 
     def parse(self, response):
         paths = IgnXpaths()
         item = IgnItem()
-        item['ignRating'] = response.xpath(paths.rating).extract()[0].strip()
-        item['ignDescription'] = response.xpath(paths.ratingDescription).extract()[0].strip()
-        item['communityRating'] = response.xpath(paths.communityRating).extract()[0].strip()
-        item['communityDescription'] = response.xpath(paths.communityRatingDescription).extract()[0].strip()
-        item['pictureLink'] = response.xpath(paths.pictureLink).extract()[0].strip()
-        item['reviewLink'] = response.xpath(paths.reviewLink).extract()[0].strip()
-        item['videoReviewLink'] = response.xpath(paths.videoReviewLink).extract()[0].strip()
-        item['esrbLink'] = response.xpath(paths.esrbLink).extract()[0].strip()
-        yield item
+        il = IgnItemLoader(item=IgnItem(), response=response)
+        il.add_xpath('ignRating', paths.rating)
+        il.add_xpath('ignDescription', paths.ratingDescription)
+        il.add_xpath('communityRating', paths.communityRating)
+        il.add_xpath('communityDescription', paths.communityRatingDescription)
+        il.add_xpath('pictureLink', paths.pictureLink)
+        il.add_xpath('reviewLink', paths.reviewLink)
+        il.add_xpath('videoReviewLink', paths.videoReviewLink)
+        il.add_xpath('esrbLink', paths.esrbLink)
+        yield il.load_item()
