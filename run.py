@@ -1,4 +1,5 @@
-from scrapers.ignscraper import IgnScraper
+from lib import scraper
 
-x = IgnScraper('fallout new vegas')
-print x.scrape()
+print scraper.scrape('banjo kazooie')
+
+
