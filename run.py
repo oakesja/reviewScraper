@@ -1,4 +1,4 @@
-from lib import scraper
+from lib.scrapers.ign_scraper import IgnScraper
 import cherrypy
 
 
@@ -9,11 +9,10 @@ class Root(object):
 
     @cherrypy.expose
     def reviews(self, game):
-        print game
-        ret = scraper.scrape(game)
-        return ret
+        scraper = IgnScraper(game)
+        return scraper.scrape()
 
 if __name__ == '__main__':
-   cherrypy.quickstart(Root(), '/')
+    cherrypy.quickstart(Root(), '/')
 
 
