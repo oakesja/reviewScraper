@@ -2,7 +2,7 @@ import requests
 from lib.paths.gamespot_paths import *
 from lib.utils.item import Item
 
-
+#TODO write a basic test to be sure Gamespot xpaths are still valid, check to be sure all attributes are not None for a given game
 class GamespotScraper(object):
     def __init__(self, game):
         game = game.replace(' ', '-')

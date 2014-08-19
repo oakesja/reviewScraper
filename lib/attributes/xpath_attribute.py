@@ -18,6 +18,7 @@ class XpathAttribute(GenericAttribute):
     def xpath(self):
         del self._xpath
 
+    # TODO add tests for
     def load_value(self):
         tree = html.fromstring(self._page.text)
         self._value = tree.xpath(self._xpath)

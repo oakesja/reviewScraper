@@ -2,7 +2,7 @@ import requests
 from lib.paths.ign_paths import *
 from lib.utils.item import Item
 
-
+#TODO write a basic test to be sure IGN xpaths are still valid, check to be sure all attributes are not None for a given game
 class IgnScraper(object):
     def __init__(self, game):
         game = game.replace(' ', '-')

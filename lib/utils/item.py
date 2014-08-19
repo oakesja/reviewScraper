@@ -16,10 +16,12 @@ class Item(object):
     def site_name(self):
         return self._site_name
 
+    # TODO add a test
     def add_xpath_attribute(self, page, name, xpath, formatting_method=TakeFirst):
         attr = XpathAttribute(name, page, xpath, formatting_method)
         self._attributes.append(attr)
 
+    # TODO add a test
     def export(self):
         ItemLoader(self).load_item()
         return JsonItemExporter(self).export()
