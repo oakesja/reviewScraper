@@ -1,3 +1,7 @@
+CherryPy==3.5.0
+argparse==1.2.1
+mock==1.0.1
+py==1.4.23
+pytest==2.6.1
 requests==2.3.0
-lxml==3.3.5
-cherrypy==3.5.0
+wsgiref==0.1.2
