@@ -2,6 +2,7 @@ from lib.scrapers.ign_scraper import IgnScraper
 import cherrypy
 
 
+#TODO add lettuce/behave test for integration testing
 class Root(object):
     @cherrypy.expose
     def index(self):

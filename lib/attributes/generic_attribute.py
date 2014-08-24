@@ -1,5 +1,8 @@
+from lib.utils.formatters import take_first
+
+
 class GenericAttribute(object):
-    def __init__(self, name, value, page, formatting_method):
+    def __init__(self, name, value, page, formatting_method=take_first):
         self._name = name
         self._value = value
         self._page = page
@@ -13,10 +16,6 @@ class GenericAttribute(object):
     def name(self, x):
         self._name = x
 
-    @name.deleter
-    def name(self):
-        del self._name
-
     @property
     def value(self):
         return self._value
@@ -24,22 +23,6 @@ class GenericAttribute(object):
     @value.setter
     def value(self, x):
         self._value = x
-
-    @value.deleter
-    def value(self):
-        del self._value
-
-    @property
-    def page(self):
-        return self._page
-
-    @page.setter
-    def page(self, x):
-        self._page = x
-
-    @page.deleter
-    def page(self):
-        del self._page
 
     @property
     def formatting_method(self):
@@ -49,9 +32,11 @@ class GenericAttribute(object):
     def formatting_method(self, x):
         self._formatting_method = x
 
-    @formatting_method.deleter
-    def formatting_method(self):
-        del self._formatting_method
-
     def format_value(self):
         self._value = self._formatting_method(self._value)
+
+    def get_page_text(self):
+        if self._page.status_code == 200:
+            return self._page.text
+        else:
+            return None

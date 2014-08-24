@@ -1,7 +1,7 @@
 from lib.attributes.xpath_attribute import XpathAttribute
-from lib.utils.item_loader import ItemLoader
 from lib.utils.exporters.json_item_exporter import JsonItemExporter
-from lib.utils.formatters import TakeFirst
+from lib.utils.formatters import take_first
+
 
 class Item(object):
     def __init__(self, site_name):
@@ -16,13 +16,15 @@ class Item(object):
     def site_name(self):
         return self._site_name
 
-    # TODO add a test
-    def add_xpath_attribute(self, page, name, xpath, formatting_method=TakeFirst):
+    def add_xpath_attribute(self, page, name, xpath, formatting_method=take_first):
         attr = XpathAttribute(name, page, xpath, formatting_method)
         self._attributes.append(attr)
 
-    # TODO add a test
     def export(self):
-        ItemLoader(self).load_item()
+        self.load_item()
         return JsonItemExporter(self).export()
+
+    def load_item(self):
+        for attribute in self._attributes:
+            attribute.load_value()
 
