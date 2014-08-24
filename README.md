@@ -11,3 +11,21 @@ Dependencies:
 - lxml
 - pytest
 - mock
+
+== Heroku ==
+Update requirements: 
+```
+ENV/bin/pip freeze > requirements.txt
+```
+Start application:
+```
+git push heroku master
+```
+Check processes:
+```
+heroku ps
+```
+Check logs:
+```
+heroku logs
+```
