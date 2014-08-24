@@ -1,5 +1,6 @@
 CherryPy==3.5.0
 argparse==1.2.1
+lxml==3.3.5
 mock==1.0.1
 py==1.4.23
 pytest==2.6.1
