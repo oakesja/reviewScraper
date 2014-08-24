@@ -14,6 +14,7 @@ class Root(object):
         return scraper.scrape()
 
 if __name__ == '__main__':
+    cherrypy.config.update({'server.socket_port': 5000})
     cherrypy.quickstart(Root(), '/')
 
 
