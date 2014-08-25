@@ -1,5 +1,6 @@
 import cherrypy
 import os
+import logging
 
 from lib.scrapers.all_scraper import AllScraper
 from lib.scrapers.ign_scraper import IgnScraper
@@ -34,6 +35,8 @@ class Review(object):
         return GamespotScraper(game).scrape()
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='review_scraper.log', level=logging.INFO,
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     root = Root()
     root.reviews = Review()
     cherrypy.config.update({'server.socket_host': '0.0.0.0'})

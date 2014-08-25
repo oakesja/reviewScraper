@@ -1,4 +1,5 @@
 from lxml import html
+import logging
 
 from lib.utils.formatters import take_first
 from generic_attribute import GenericAttribute
@@ -8,6 +9,7 @@ class XpathAttribute(GenericAttribute):
     def __init__(self, name, page, xpath, formatting_method=take_first, value=None):
         super(XpathAttribute, self).__init__(name, value, page, formatting_method)
         self._xpath = xpath
+        self._logger = logging.getLogger(__name__)
 
     @property
     def xpath(self):
@@ -17,7 +19,6 @@ class XpathAttribute(GenericAttribute):
     def xpath(self, value):
         self._xpath = value
 
-    # TODO add logging here instead of format handler
     def load_value(self):
         page_text = self.get_page_text()
         self._parse_page_text(page_text)
@@ -34,4 +35,5 @@ class XpathAttribute(GenericAttribute):
         if self._value:
             self.format_value()
         else:
+            self._logger.info('Xpath to %s attribute failed', self._name)
             self._value = None

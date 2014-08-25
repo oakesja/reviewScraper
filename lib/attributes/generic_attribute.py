@@ -1,3 +1,5 @@
+import logging
+
 from lib.utils.formatters import take_first
 
 
@@ -7,6 +9,7 @@ class GenericAttribute(object):
         self._value = value
         self._page = page
         self._formatting_method = formatting_method
+        self._logger = logging.getLogger(__name__)
 
     @property
     def name(self):
@@ -39,4 +42,5 @@ class GenericAttribute(object):
         if self._page.status_code == 200:
             return self._page.text
         else:
+            self._logger.info("Getting page failed with status code %s", self._page.status_code)
             return None

@@ -1,4 +1,5 @@
 import requests
+import logging
 
 from lib.paths.ign_paths import *
 from lib.utils.item import Item
@@ -9,8 +10,10 @@ class IgnScraper(object):
         game = game.replace(' ', '-')
         self._url = 'http://www.ign.com/games/' + game
         self._item = Item('IGN')
+        self._logger = logging.getLogger(__name__)
 
     def scrape(self, export_type='json'):
+        self._logger.info('Scraping %s', self._url)
         response = requests.get(self._url)
         self._item.add_xpath_attribute(response, 'rating', IgnRatingXpath())
         self._item.add_xpath_attribute(response, 'rating_description', IgnRatingDescriptionXpath())
