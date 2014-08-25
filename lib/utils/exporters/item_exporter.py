@@ -1,16 +1,24 @@
 import json
 
+from lib.utils.exceptions import MyException
 
-class JsonItemExporter(object):
-    def __init__(self, item):
+
+class ItemExporter(object):
+    def __init__(self, item, export_type):
         self._item = item
+        self._export_type = export_type
 
     def export(self):
-        json_values = self._get_values_json()
-        json_all = self._with_site_name(json_values)
-        return json.dumps(json_all)
+        values = self._get_values()
+        with_site = self._with_site_name(values)
+        if self._export_type == 'json':
+            return json.dumps(with_site)
+        elif self._export_type == 'dict':
+            return with_site
+        else:
+            raise MyException('Invalid export type')
 
-    def _get_values_json(self):
+    def _get_values(self):
         values = dict()
         for attr in self._item.attributes:
             if attr.value:

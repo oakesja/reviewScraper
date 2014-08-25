@@ -10,7 +10,7 @@ class IgnScraper(object):
         self._url = 'http://www.ign.com/games/' + game
         self._item = Item('IGN')
 
-    def scrape(self):
+    def scrape(self, export_type='json'):
         response = requests.get(self._url)
         self._item.add_xpath_attribute(response, 'rating', IgnRatingXpath())
         self._item.add_xpath_attribute(response, 'rating_description', IgnRatingDescriptionXpath())
@@ -20,4 +20,4 @@ class IgnScraper(object):
         self._item.add_xpath_attribute(response, 'review_link', IgnReviewLinkXpath())
         self._item.add_xpath_attribute(response, 'video_review_link', IgnVidoeReviewLinkXpath())
         self._item.add_xpath_attribute(response, 'esrb_link', IgnEsrbLinkXpath())
-        return self._item.export()
+        return self._item.export(export_type)
