@@ -9,7 +9,12 @@ from lib.scrapers.gamespot_scraper import GamespotScraper
 class Root(object):
     @cherrypy.expose
     def index(self):
-        return "Usage:"
+        return '''<ul>
+            <li>/review/all/&ltgame&gt</li>
+            <li>/review/ign/&ltgame&gt</li>
+            <li>/review/gamespot/&ltgame&gt</li>
+            </ul>
+            '''
 
 
 class Review(object):
