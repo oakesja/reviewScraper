@@ -1,5 +1,5 @@
 Review Scraper
-=============
+============
 
 ## Tests ##
 Tests are stored in the `tests` directory. They are written using pytest and mock.
