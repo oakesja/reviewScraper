@@ -1,5 +1,7 @@
 CherryPy==3.5.0
+LogentriesLogger==0.2.1
 argparse==1.2.1
+cssselect==0.9.1
 lxml==3.3.5
 mock==1.0.1
 py==1.4.23

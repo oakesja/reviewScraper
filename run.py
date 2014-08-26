@@ -1,6 +1,8 @@
 import cherrypy
 import os
+from logentries import LogentriesHandler
 import logging
+
 
 from lib.scrapers.all_scraper import AllScraper
 from lib.scrapers.ign_scraper import IgnScraper
@@ -36,7 +38,8 @@ class Review(object):
 
 if __name__ == '__main__':
     logging.basicConfig(filename='review_scraper.log', level=logging.INFO,
-                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        stream=LogentriesHandler('2f8adcef-20ac-4bb6-bf7a-34ba1c872255'))
     root = Root()
     root.reviews = Review()
     cherrypy.config.update({'server.socket_host': '0.0.0.0'})
