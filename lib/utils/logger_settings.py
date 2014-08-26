@@ -11,7 +11,7 @@ def logger_settings():
         "handlers": {
             "logentries": {
                 "class": "logentries.LogentriesHandler",
-                "token": "82d29a94-ec97-48f5-b55e-d069d0199520",
+                "token": "cc59a820-0de7-488f-adee-14d21e3e639d",
                 "formatter": "simple"
             },
 
