@@ -33,6 +33,7 @@ class XpathAttribute(GenericAttribute):
 
     def _format_value(self):
         if self._value:
+            self._logger.info('Xpath to %s attribute succeeded', self._name)
             self.format_value()
         else:
             self._logger.info('Xpath to %s attribute failed', self._name)
