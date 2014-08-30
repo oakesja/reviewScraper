@@ -22,17 +22,14 @@ class Root(object):
 
 class Review(object):
     @cherrypy.expose
-    @cherrypy.tools.json_out()
     def all(self, game):
         return AllScraper(game).scrape()
 
     @cherrypy.expose
-    @cherrypy.tools.json_out()
     def ign(self, game):
         return IgnScraper(game).scrape()
 
     @cherrypy.expose
-    @cherrypy.tools.json_out()
     def gamespot(self, game):
         return GamespotScraper(game).scrape()
 
