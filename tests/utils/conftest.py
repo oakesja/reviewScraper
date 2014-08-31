@@ -12,14 +12,14 @@ def item_with_one_value():
     page.status_code = 200
     page.text = '<div>9.0</div>'
     xpath = '//div/text()'
-    item = Item('ign')
+    item = Item('IGN')
     item.attributes.append(XpathAttribute('rating', page, xpath, take_first, '9.0'))
     return item
 
 
 @pytest.fixture(scope="session")
 def item_with_empty_attrs():
-    item = Item('ign')
+    item = Item('IGN')
     item.attributes.append(XpathAttribute('rating', None, None, None, '9.0'))
     item.attributes.append(XpathAttribute('description', None, None, None, None))
     return item
@@ -34,5 +34,5 @@ def item_with_empty_site_name():
 
 @pytest.fixture(scope="session")
 def item_empty():
-    item = Item('ign')
+    item = Item('IGN')
     return item
