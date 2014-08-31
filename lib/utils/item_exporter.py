@@ -29,13 +29,11 @@ class ItemExporter(object):
         return values
 
     def _with_site_name(self, values):
-        site = dict()
         if self._item.site_name and values:
-            site[self._item.site_name] = values
-            return site
+            values["site"] = self._item.site_name
+            return values
         if self._item.site_name:
             self._logger.info("No values found to export")
-            site[self._item.site_name] = None
-            return site
+            return None
         else:
             return values
