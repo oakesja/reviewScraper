@@ -1,9 +1,10 @@
 import string
+import re
 
 
 def take_first(x):
     if valid_list(x):
-        return x[0].strip()
+        return remove_whitespace(x[0])
     else:
         return None
 
@@ -18,7 +19,7 @@ def take_all(x):
 
 def do_take_all(x, sep):
     if valid_list(x):
-        words = map(lambda y: y.strip(), x)
+        words = map(lambda y: remove_whitespace(y), x)
         words = filter(lambda y: y != '', words)
         return string.join(words, sep)
     else:
@@ -34,3 +35,7 @@ def all_strings(ls):
         if not hasattr(x, 'strip'):
             return False
     return True
+
+
+def remove_whitespace(s):
+    return re.sub( '\s+', ' ', s ).strip()

@@ -18,7 +18,7 @@ def ign_game_description():
 @pytest.fixture(scope="session")
 def gamespot_game_description():
     return "The latest game in the post-nuclear RPG series is being developed " \
-           "by many members of the Fallout 1 and 2  team at Obsidian Entertainment " \
+           "by many members of the Fallout 1 and 2 team at Obsidian Entertainment " \
            "using the Fallout 3 engine."
 
 @pytest.fixture(scope="session")
