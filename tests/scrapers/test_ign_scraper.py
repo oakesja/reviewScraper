@@ -8,6 +8,8 @@ def test_ign_scrape_review():
         assert not value is None
 
 
+# TODO add a formatter that correctly formats spaces to fix publisher here
+# and game description on Gamespot
 def test_ign_scrape_description(ign_game_description):
     s = IgnScraper('fallout new vegas')
     d = s.scrape_description('dict')

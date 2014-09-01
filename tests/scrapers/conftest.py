@@ -20,3 +20,15 @@ def gamespot_game_description():
     return "The latest game in the post-nuclear RPG series is being developed " \
            "by many members of the Fallout 1 and 2  team at Obsidian Entertainment " \
            "using the Fallout 3 engine."
+
+@pytest.fixture(scope="session")
+def normal_reviews():
+    return [{"rating": "9.0", "community_rating": "8.0"}, {"rating": "8.5","community_rating": "9.0"}]
+
+@pytest.fixture(scope="session")
+def missing_rating_review():
+    return [{"rating": "9.0", "community_rating": "8.0"}, {"name": "test"}]
+
+@pytest.fixture(scope="session")
+def no_ratings_review():
+    return [{"name": "foo"}, {"name": "test"}]
