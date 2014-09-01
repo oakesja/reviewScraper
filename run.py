@@ -27,11 +27,11 @@ class Review(object):
 
     @cherrypy.expose
     def ign(self, game):
-        return IgnScraper(game).scrape()
+        return IgnScraper(game).scrape_review()
 
     @cherrypy.expose
     def gamespot(self, game):
-        return GamespotScraper(game).scrape()
+        return GamespotScraper(game).scrape_review()
 
 if __name__ == '__main__':
     logging.config.dictConfig(logger_settings())

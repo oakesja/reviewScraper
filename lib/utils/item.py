@@ -4,7 +4,7 @@ from lib.utils.formatters import take_first
 
 
 class Item(object):
-    def __init__(self, site_name):
+    def __init__(self, site_name=None):
         self._attributes = []
         self._site_name = site_name
 

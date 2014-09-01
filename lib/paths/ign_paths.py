@@ -45,11 +45,11 @@ def IgnGenre():
 
 
 def IgnDeveloperXpath():
-    return "//*[contains(concat(' ', normalize-space(@class), ' '), ' gameInfo-list ')][2]/div[2]/a/text()"
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), ' gameInfo-list ')][2]/div[3]/a/text()"
 
 
 def IgnPublisherXpath():
-    return "//*[contains(concat(' ', normalize-space(@class), ' '), ' gameInfo-list ')][2]/div[3]/a/text()"
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), ' gameInfo-list ')][2]/div[2]/a/text()"
 
 
 def IgnPictureLinkXpath():

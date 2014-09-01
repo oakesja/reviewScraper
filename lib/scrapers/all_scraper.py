@@ -8,6 +8,6 @@ class AllScraper(object):
 
     def scrape(self):
         values = list()
-        values.append(IgnScraper(self._game).scrape())
-        values.append(GamespotScraper(self._game).scrape())
+        values.append(IgnScraper(self._game).scrape_review())
+        values.append(GamespotScraper(self._game).scrape_review())
         return values
