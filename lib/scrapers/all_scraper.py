@@ -18,15 +18,15 @@ class AllScraper(object):
         descr.update(self._gamespot_scraper.scrape_description('dict'))
         output["reviews"] = reviews
         output["description"] = descr
-        output['average_rating'] = self.get_average_rating(reviews)
-        output['average_community_rating'] = self.get_average_community_rating(reviews)
+        output['averageRating'] = self.get_average_rating(reviews)
+        output['averageCommunityRating'] = self.get_average_community_rating(reviews)
         return json.dumps(output)
 
     def get_average_rating(self, reviews):
         return self._get_average_rating(reviews, "rating")
 
     def get_average_community_rating(self, reviews):
-        return self._get_average_rating(reviews, "community_rating")
+        return self._get_average_rating(reviews, "communityRating")
 
     def _get_average_rating(self, reviews, rating_key):
         rating = 0
