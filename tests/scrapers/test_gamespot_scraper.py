@@ -17,8 +17,10 @@ def test_gamespot_scrape_description(gamespot_game_description):
     assert d["platform"] == 'PC, PlayStation 3, Xbox 360'
     assert d["releaseDate"] == 'Oct 19, 2010'
     assert d["gameDescription"] == gamespot_game_description
-    assert d["genre"] == 'Role-Playing, First-Person'
+    assert 'Role-Playing' in d["genre"]
+    assert 'First-Person' in d["genre"]
     assert d['developer'] == 'Obsidian Entertainment'
     assert d['publisher'] == 'Bethesda Softworks, ZeniMax Media'
     assert d['pictureLink'] is not None
     assert d['esrbLink'] is not None
+
