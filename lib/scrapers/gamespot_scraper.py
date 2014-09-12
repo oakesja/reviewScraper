@@ -3,7 +3,7 @@ import logging
 
 from lib.paths.gamespot_paths import *
 from lib.utils.item import Item
-from lib.utils.formatters import take_all, take_all_comma
+from lib.utils.formatters import take_all, take_all_comma, gamespot_review_link
 
 
 class GamespotScraper(object):
@@ -21,7 +21,7 @@ class GamespotScraper(object):
         self._review_item.add_xpath_attribute(self._response, 'rating', GamespotRatingXpath())
         self._review_item.add_xpath_attribute(self._response, 'ratingDescription', GamespotRatingDescriptionXpath())
         self._review_item.add_xpath_attribute(self._response, 'communityRating', GamespotCommunityRatingXpath())
-        self._review_item.add_xpath_attribute(self._response, 'reviewLink', GamespotReviewLinkXpath())
+        self._review_item.add_xpath_attribute(self._response, 'reviewLink', GamespotReviewLinkXpath(), gamespot_review_link)
         return self._review_item.export(export_type)
 
     def scrape_description(self, export_type='json'):

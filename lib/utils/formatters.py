@@ -9,6 +9,13 @@ def take_first(x):
         return None
 
 
+def gamespot_review_link(x):
+    if valid_list(x):
+        return "http://www.gamespot.com" + x[0]
+    else:
+        return None
+
+
 def take_all_comma(x):
     return do_take_all(x, ', ')
 

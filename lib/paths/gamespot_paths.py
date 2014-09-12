@@ -21,7 +21,7 @@ def GamespotGameNameXpath():
 
 
 def GamespotPlatformsXpath():
-    return "//*[contains(concat(' ', normalize-space(@class), ' '), ' gameObject__info ')]//*[contains(concat(' ', normalize-space(@class), ' '), ' system-list ')]/li/a/text()"
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), ' secondary-content ')]//*[contains(concat(' ', normalize-space(@class), ' '), ' pod-objectStats-info__systems')]/ul/li/text()"
 
 
 def GamespotReleaseDateXpath():
