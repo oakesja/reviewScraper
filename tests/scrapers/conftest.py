@@ -1,5 +1,7 @@
 import pytest
 
+from mock import Mock
+
 
 @pytest.fixture(scope="session")
 def ign_game_description():
@@ -32,3 +34,33 @@ def missing_rating_review():
 @pytest.fixture(scope="session")
 def no_ratings_review():
     return [{"name": "foo"}, {"name": "test"}]
+
+@pytest.fixture(scope="session")
+def review_scraper_mock():
+    scraper = Mock()
+    scraper.scrape_review.return_value = dict(rating="9.0")
+    return scraper
+
+@pytest.fixture(scope="session")
+def review_scraper_mock_none():
+    scraper = Mock()
+    scraper.scrape_review.return_value = None
+    return scraper
+
+@pytest.fixture(scope="session")
+def desc_scraper_mock_test():
+    scraper = Mock()
+    scraper.scrape_description.return_value = dict(cover='test')
+    return scraper
+
+@pytest.fixture(scope="session")
+def desc_scraper_mock_cover():
+    scraper = Mock()
+    scraper.scrape_description.return_value = dict(cover='cover')
+    return scraper
+
+@pytest.fixture(scope="session")
+def desc_scraper_mock_none():
+    scraper = Mock()
+    scraper.scrape_description.return_value = None
+    return scraper
