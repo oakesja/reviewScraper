@@ -57,4 +57,4 @@ class AllScraper(object):
         if count == 0:
             return "No Reviews"
         else:
-            return rating / count
+            return '{:.3}'.format(rating / count)
