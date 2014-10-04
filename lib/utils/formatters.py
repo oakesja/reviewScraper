@@ -45,4 +45,15 @@ def all_strings(ls):
 
 
 def remove_whitespace(s):
-    return re.sub( '\s+', ' ', s ).strip()
+    return re.sub('\s+', ' ', s).strip()
+
+
+def all_text_from_html(x):
+    if not hasattr(x, 'itertext'):
+        return None
+    return ''.join(x.itertext()).strip()
+
+
+def find_search_key(x):
+    x = x.replace("http://www.ign.com/games/", "")
+    return x.split("/")[0]

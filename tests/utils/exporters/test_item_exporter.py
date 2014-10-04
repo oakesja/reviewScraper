@@ -1,6 +1,6 @@
 import pytest
 
-from lib.utils.item_exporter import ItemExporter
+from lib.utils.exporters.item_exporter import ItemExporter
 from lib.utils.exceptions import MyException
 
 

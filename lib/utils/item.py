@@ -1,5 +1,5 @@
 from lib.attributes.xpath_attribute import XpathAttribute
-from lib.utils.item_exporter import ItemExporter
+from lib.utils.exporters.item_exporter import ItemExporter
 from lib.utils.formatters import take_first
 
 
@@ -20,9 +20,9 @@ class Item(object):
         attr = XpathAttribute(name, page, xpath, formatting_method)
         self._attributes.append(attr)
 
-    def export(self, export_type='json'):
+    def export(self, export_type='json', exporter=ItemExporter):
         self.load_item()
-        return ItemExporter(self, export_type).export()
+        return exporter(self, export_type).export()
 
     def load_item(self):
         for attribute in self._attributes:

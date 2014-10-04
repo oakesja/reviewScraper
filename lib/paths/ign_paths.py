@@ -60,3 +60,18 @@ def IgnEsrbLinkXpath():
     return "//*[contains(@id, 'summary')]/div[@class='gameInfo']/p/a/@href"
 
 
+# Search Results Xpaths
+def IgnSearchNameXpath():
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), 'search-item-title')]/a"
+
+
+def IgnSearchPictureLinkXpath():
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), 'search-item-media')]/a/img/@src"
+
+
+def IgnSearchPlatformsXpath():
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), 'search-item-sub-title')]"
+
+
+def IgnSearchKeyXpath():
+    return "//*[contains(concat(' ', normalize-space(@class), ' '), 'search-item-title')]/a/@href"
