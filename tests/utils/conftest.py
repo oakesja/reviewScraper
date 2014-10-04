@@ -36,3 +36,10 @@ def item_with_empty_site_name():
 def item_empty():
     item = Item('IGN')
     return item
+
+@pytest.fixture(scope="session")
+def item_list_attr():
+    item = Item()
+    item.attributes.append(XpathAttribute('gameName', None, None, None, ['game1', 'game2']))
+    item.attributes.append(XpathAttribute('pictureLink', None, None, None, ['link1', 'link2']))
+    return item
